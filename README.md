@@ -11,64 +11,59 @@ npm install sorriso
 Usage
 ----------
 
-#### on commonJS
+#### Node.js
 ```js
 const sorriso = require('sorriso').default;
 const result = await sorriso('sm9');
 console.dir(result);
 
 /* 
-{ deleted: false,
-  category: null,
+{ category: null,
   comment: 4474349,
+  deleted: false,
   description: 'レッツゴー!陰陽師(フルコーラスバージョン)',
   image: 'http://tn-skr2.smilevideo.jp/smile?i=9',
-  time: '5:19',
-  time_hours: 0,
-  time_minutes: 5,
-  time_seconds: 19,
-  title: '新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師',
-  my_list: 167570,
+  mylist: 167570,
   reported: false,
-  updated_at: '2017-02-27T15:13:04+09:00',
-  uploaded_at: '2007-03-06T00:33:00+09:00',
-  user_nickname: '運営長の中の人',
-  user_id: 4,
-  user_image: 'http://dcdn.cdn.nimg.jp/nicoaccount/usericon/0/4.jpg?1271141672',
-  user_secret: false,
+  time: { string: '5:19', hours: 0, minutes: 5, seconds: 19 },
+  title: '新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師',
+  updated: '2017-02-27T15:13:04+09:00',
+  uploaded: '2007-03-06T00:33:00+09:00',
+  user: 
+   { nickname: '運営長の中の人',
+     id: 4,
+     image: 'http://dcdn.cdn.nimg.jp/nicoaccount/usericon/0/4.jpg?1271141672',
+     secret: false },
   view: 16289263 }
 */
 ```
 
-#### on TypeScript
+#### TypeScript on Node.js
 ```ts
 import sorriso from 'sorisso';
 const result = await sorriso('sm9');
 console.dir(result);
 
 /* 
-{ deleted: false,
-  category: null,
+{ category: null,
   comment: 4474349,
+  deleted: false,
   description: 'レッツゴー!陰陽師(フルコーラスバージョン)',
   image: 'http://tn-skr2.smilevideo.jp/smile?i=9',
-  time: '5:19',
-  time_hours: 0,
-  time_minutes: 5,
-  time_seconds: 19,
-  title: '新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師',
-  my_list: 167570,
+  mylist: 167570,
   reported: false,
-  updated_at: '2017-02-27T15:13:04+09:00',
-  uploaded_at: '2007-03-06T00:33:00+09:00',
-  user_nickname: '運営長の中の人',
-  user_id: 4,
-  user_image: 'http://dcdn.cdn.nimg.jp/nicoaccount/usericon/0/4.jpg?1271141672',
-  user_secret: false,
+  time: { string: '5:19', hours: 0, minutes: 5, seconds: 19 },
+  title: '新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師',
+  updated: '2017-02-27T15:13:04+09:00',
+  uploaded: '2007-03-06T00:33:00+09:00',
+  user: 
+   { nickname: '運営長の中の人',
+     id: 4,
+     image: 'http://dcdn.cdn.nimg.jp/nicoaccount/usericon/0/4.jpg?1271141672',
+     secret: false },
   view: 16289263 }
 */
 ```
-
 
 License
 ----------
