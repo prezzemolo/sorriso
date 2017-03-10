@@ -5,6 +5,7 @@
   "main": "./release/index.js",
   "types": "./release/types/index.d.ts",
   "scripts": {
+    "prepublish": "pkg-ok",
     "test": "npm run lint",
     "lint": "tslint",
     "build": "tsc",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/prezzemolo/sorriso#readme",
   "devDependencies": {
     "@types/node": "^7.0.4",
+    "pkg-ok": "^1.0.1",
     "tslint": "^4.4.2",
     "typescript": "^2.1.5"
   }
