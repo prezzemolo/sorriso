@@ -28,7 +28,7 @@ export default async (videoId) => {
     const result = await request("http://ext.nicovideo.jp/api/getthumbinfo/" + videoId)
 
     /**
-     * error: api result's status code is wrong.
+     * @throws api result's status code is wrong.
      * 
      * at now, niconico api returns 200 status code if api processes request.
      * so reject if status code isn't 200.
@@ -42,7 +42,7 @@ export default async (videoId) => {
     const thumb: thumb = xml2json.toJson(data, {object: true})
 
     /**
-     * error: api status is not 'ok'.
+     * @throws api status is not 'ok'.
      */
     if (thumb.nicovideo_thumb_responce.status !== "ok") throw new Error("api status is not 'ok'.")
 
