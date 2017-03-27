@@ -38,7 +38,7 @@ console.dir(result);
 */
 ```
 
-#### TypeScript on Node.js
+#### TypeScript
 ```ts
 import sorriso from 'sorisso';
 const result = await sorriso('sm9');
