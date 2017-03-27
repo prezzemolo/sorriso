@@ -1,12 +1,12 @@
 {
   "name": "sorriso",
   "version": "0.0.0",
-  "description": "getter of niconico video informations",
+  "description": "get niconico video informations.",
   "main": "./release/index.js",
   "types": "./release/types/index.d.ts",
   "scripts": {
     "test": "npm run lint",
-    "lint": "tslint",
+    "lint": "find src -type f | xargs tslint -c tslint.json",
     "build": "tsc",
     "bash": "bash"
   },
