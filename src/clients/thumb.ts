@@ -3,7 +3,7 @@ import * as xml2json from "xml2json"
 
 /**
  * thumb: internal type of thumb api's responce
- * 
+ *
  * note: nicovideo_thumb_responce is optional in this type, for
  *     resolve an error "src/clients/thumb.ts(28,11): error TS2322: Type '{}' is not assignable to type 'thumb'.".
  */
@@ -20,7 +20,7 @@ type thumb = {
 
 /**
  * client of thumb api.
- * 
+ *
  * @param {String} videoId niconico video identifier
  * @return {Object} thumb api result.
  */
@@ -29,7 +29,7 @@ export default async (videoId) => {
 
     /**
      * @throws api result's status code is wrong.
-     * 
+     *
      * at now, niconico api returns 200 status code if api processes request.
      * so reject if status code isn't 200.
      */

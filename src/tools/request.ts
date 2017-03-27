@@ -2,7 +2,7 @@ import * as http from "http"
 
 /**
  *  Result: type of result
- * 
+ *
  * @property {Buffer} data if receive data, it will be contained.
  * @property {Object} headers dictionary contains received http headers.
  * @property {Number} statusCode http statusCode.
@@ -15,7 +15,7 @@ export type Result = {
 
 /**
  * http request sender.
- * 
+ *
  * @param {String} url
  * @return {Promise<Result>} custom resolt object that has 3 properties... data, headers and statusCode.
  */
