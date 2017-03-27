@@ -1,6 +1,6 @@
 sorriso [![][mit-badge]][mit] [![][travis-badge]][travis]
 ==========
-getter of niconico video informations.
+get niconico video informations.
 
 Installation
 ----------
@@ -72,4 +72,4 @@ The MIT License. See [LICENSE](LICENSE).
 [mit]: http://opensource.org/licenses/MIT
 [mit-badge]:https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
 [travis]: https://travis-ci.org/prezzemolo/sorriso
-[travis-badge]: https://travis-ci.org/prezzemolo/sorriso.svg?branch=master
+[travis-badge]: https://img.shields.io/travis/prezzemolo/sorriso/master.svg?style=flat-square
