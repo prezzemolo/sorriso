@@ -2,12 +2,12 @@ import request from "../tools/request"
 import * as xml2json from "xml2json"
 
 /**
- * thumb: internal type of thumb api's responce
+ * thumb: internal interface of thumb api's responce
  *
- * note: nicovideo_thumb_responce is optional in this type, for
+ * note: nicovideo_thumb_responce is optional in this interface, for
  *     resolve an error "src/clients/thumb.ts(28,11): error TS2322: Type '{}' is not assignable to type 'thumb'.".
  */
-type thumb = {
+interface thumb {
     nicovideo_thumb_responce?: {
         status: String,
         error?: {

@@ -1,7 +1,7 @@
 import thumbClient from "./clients/thumb"
 // import videoInfoClient from "./clients/video-info"
 
-type Sorriso = {
+export interface Sorriso {
     category: String,
     comment: Number,
     deleted: Boolean,
