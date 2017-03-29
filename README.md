@@ -1,4 +1,4 @@
-sorriso [![][mit-badge]][mit] [![][travis-badge]][travis]
+sorriso [![][mit-badge]][mit] [![][travis-badge]][travis] [![][greenkeeper-badge]][greenkeeper]
 ==========
 get niconico video informations.
 
@@ -73,3 +73,5 @@ The MIT License. See [LICENSE](LICENSE).
 [mit-badge]:https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
 [travis]: https://travis-ci.org/prezzemolo/sorriso
 [travis-badge]: https://img.shields.io/travis/prezzemolo/sorriso/master.svg?style=flat-square
+[greenkeeper]: https://greenkeeper.io/
+[greenkeeper-badge]: https://badges.greenkeeper.io/prezzemolo/sorriso.svg
