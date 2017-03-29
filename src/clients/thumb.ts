@@ -1,21 +1,19 @@
 import request from "../tools/request"
 import * as xml2json from "xml2json"
-import { Thumb } from "../interfaces"
+import { ThumbAPI } from "../interfaces"
 
 /**
  * client of thumb api.
  *
  * @param {String} videoId niconico video identifier
- * @return {Object} thumb api result.
+ * @return {Promise<Object>} thumb api result.
  */
 export default async (videoId: String) => {
     const result = await request("http://ext.nicovideo.jp/api/getthumbinfo/" + videoId)
 
     /**
      * @throws api result's status code is wrong.
-     *
-     * at now, niconico api returns 200 status code if api processes request.
-     * so reject if status code isn't 200.
+     * niconico api responses always have status code 200 if api processes requests.
      */
     if (result.statusCode !== 200) throw new Error("api result's status code is wrong.")
 
@@ -23,14 +21,18 @@ export default async (videoId: String) => {
      * get object from Buffer.
      */
     const data = result.data.toString()
-    const thumb: Thumb = xml2json.toJson(data, {object: true})
+    const thumbAPI: ThumbAPI = xml2json.toJson(data, {object: true})
 
     /**
      * @throws api status is not 'ok'.
      */
-    if (thumb.nicovideo_thumb_response.status !== "ok") throw new Error("api status is not 'ok'.")
+    if (thumbAPI.nicovideo_thumb_response.status !== "ok") throw new Error("api status is not 'ok'.")
+
+    /**
+     * stuff values into a return object
+     */
+    const thumb = thumbAPI.nicovideo_thumb_response.thumb
 
     /* return thumb data. */
-    return thumb.nicovideo_thumb_response.thumb
+    return thumb
 
-}
