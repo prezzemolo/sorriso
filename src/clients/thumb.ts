@@ -2,12 +2,12 @@ import request from "../tools/request"
 import * as xml2json from "xml2json"
 
 /**
- * thumb: internal interface of thumb api's responce
+ * Thumb: internal interface of thumb api's responce
  *
  * note: nicovideo_thumb_responce is optional in this interface, for
  *     resolve an error "src/clients/thumb.ts(28,11): error TS2322: Type '{}' is not assignable to type 'thumb'.".
  */
-interface thumb {
+interface Thumb {
     nicovideo_thumb_responce?: {
         status: String,
         error?: {
@@ -39,7 +39,7 @@ export default async (videoId) => {
      * get object from Buffer.
      */
     const data = result.data.toString()
-    const thumb: thumb = xml2json.toJson(data, {object: true})
+    const thumb: Thumb = xml2json.toJson(data, {object: true})
 
     /**
      * @throws api status is not 'ok'.
