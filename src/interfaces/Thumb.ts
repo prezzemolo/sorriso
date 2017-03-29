@@ -1,4 +1,14 @@
 /**
+ * Tag
+ * internal type used in ThumbAPI
+ */
+export type Tag = {
+    lock?: String,
+    category?: String,
+    "$t": String
+} | String
+
+/**
  * ThumbAPI
  * internal interface of thumb api's response
  *
@@ -52,7 +62,7 @@ export interface ThumbAPI {
                  * - some tags are category or locked
                  * [{lock: '1', '$t': 'a'}, 'b', 'c', ...]
                  */
-                tag?: String | String[] | Object[]
+                tag?: String | Tag[]
             }
         }
     }
