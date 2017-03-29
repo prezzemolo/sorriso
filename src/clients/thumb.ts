@@ -28,8 +28,9 @@ export default async (videoId: String) => {
     /**
      * @throws api status is not 'ok'.
      */
-    if (thumb.nicovideo_thumb_responce.status !== "ok") throw new Error("api status is not 'ok'.")
+    if (thumb.nicovideo_thumb_response.status !== "ok") throw new Error("api status is not 'ok'.")
 
     /* return thumb data. */
-    return thumb.nicovideo_thumb_responce.thumb
+    return thumb.nicovideo_thumb_response.thumb
+
 }
