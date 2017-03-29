@@ -35,4 +35,4 @@ export default async (videoId: String) => {
 
     /* return thumb data. */
     return thumb
-
+}
