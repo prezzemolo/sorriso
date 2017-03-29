@@ -9,9 +9,9 @@ import { Request } from "../interfaces"
  */
 export default (url: String): Promise<Request> => new Promise((resolve, reject) => {
     /* receiver */
-    const callback = res => {
-        const data = []
-        res.on("data", chunk => {
+    const callback = (res: http.IncomingMessage) => {
+        const data: Buffer[] = []
+        res.on("data", (chunk: Buffer) => {
             data.push(chunk)
         })
         res.on("end", () => {
@@ -22,7 +22,7 @@ export default (url: String): Promise<Request> => new Promise((resolve, reject) 
             if (data) result.data =  Buffer.concat(data)
             resolve(result)
         })
-        res.on("close", err => {
+        res.on("close", (err: Error) => {
             reject(err)
         })
     }
