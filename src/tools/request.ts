@@ -1,13 +1,23 @@
 import * as http from "http"
+import * as URL from "url"
 import { Request } from "../interfaces"
 
 /**
  * http request sender.
  *
  * @param {string} url
+ * @param {string} method "GET" or "HEAD". GET" by default.
  * @return {Promise<Request>} custom result object that has 3 properties... data, headers and statusCode.
  */
-export default (url: string): Promise<Request> => new Promise((resolve, reject) => {
+export default (url: string, method: string = "GET"): Promise<Request> => new Promise((resolve, reject) => {
+    /* pack options */
+    const urlObj = URL.parse(url)
+    const options: http.RequestOptions = {
+        "host": urlObj.hostname,
+        "method": method,
+        "path": urlObj.path
+    }
+
     /* receiver */
     const callback = (res: http.IncomingMessage) => {
         const data: Buffer[] = []
@@ -19,7 +29,7 @@ export default (url: string): Promise<Request> => new Promise((resolve, reject) 
                 headers: res.headers,
                 statusCode: res.statusCode
             }
-            if (data) result.data =  Buffer.concat(data)
+            if (data.length > 0) result.data =  Buffer.concat(data)
             resolve(result)
         })
         res.on("close", (err: Error) => {
@@ -28,6 +38,6 @@ export default (url: string): Promise<Request> => new Promise((resolve, reject) 
     }
 
     /* send http request */
-    const req = http.request(url, callback)
+    const req = http.request(options, callback)
     req.end()
 })
