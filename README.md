@@ -1,5 +1,7 @@
 sorriso [![][mit-badge]][mit] [![][travis-badge]][travis]
 ==========
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/prezzemolo/sorriso.svg)](https://greenkeeper.io/)
 get niconico video informations.
 
 Installation
