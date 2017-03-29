@@ -55,14 +55,16 @@ export interface ThumbAPI {
                 // ex: 'jp'
                 domain?: String,
                 /**
-                 * only one tag that isn't category and locked, be String.
-                 * multiple, Array, but contains two paterns...
-                 * - all tags aren't category and locked
-                 * ['a', 'b', 'c', ...]
-                 * - some tags are category or locked
-                 * [{lock: '1', '$t': 'a'}, 'b', 'c', ...]
+                 * one tag:
+                 *   if not category and locked tag be String,
+                 *   else ThumbAPITag object.
+                 * multiple:
+                 *   - all tags aren't category and locked
+                 *   ['a', 'b', 'c', ...]
+                 *   - some tags are category or locked
+                 *   [{lock: '1', '$t': 'a'}, 'b', 'c', ...]
                  */
-                tag?: String | ThumbAPITag[]
+                tag?: String | ThumbAPITag[] | ThumbAPITag
             }
         }
     }
