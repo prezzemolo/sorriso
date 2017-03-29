@@ -1,25 +1,13 @@
 import * as http from "http"
-
-/**
- *  Result: type of result
- *
- * @property {Buffer} data if receive data, it will be contained.
- * @property {Object} headers dictionary contains received http headers.
- * @property {Number} statusCode http statusCode.
- */
-export type Result = {
-    data?: Buffer,
-    headers: any,
-    statusCode: Number
-}
+import { Request } from "../interfaces"
 
 /**
  * http request sender.
  *
  * @param {String} url
- * @return {Promise<Result>} custom resolt object that has 3 properties... data, headers and statusCode.
+ * @return {Promise<Request>} custom result object that has 3 properties... data, headers and statusCode.
  */
-export default (url: String): Promise<Result> => new Promise((resolve, reject) => {
+export default (url: String): Promise<Request> => new Promise((resolve, reject) => {
     /* receiver */
     const callback = res => {
         const data = []
@@ -27,7 +15,7 @@ export default (url: String): Promise<Result> => new Promise((resolve, reject) =
             data.push(chunk)
         })
         res.on("end", () => {
-            let result: Result = {
+            let result: Request = {
                 headers: res.headers,
                 statusCode: res.statusCode
             }
