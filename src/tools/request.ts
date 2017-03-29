@@ -7,7 +7,7 @@ import { Request } from "../interfaces"
  * @param {String} url
  * @return {Promise<Request>} custom result object that has 3 properties... data, headers and statusCode.
  */
-export default (url: String): Promise<Request> => new Promise((resolve, reject) => {
+export default (url: string): Promise<Request> => new Promise((resolve, reject) => {
     /* receiver */
     const callback = (res: http.IncomingMessage) => {
         const data: Buffer[] = []

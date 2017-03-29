@@ -3,10 +3,10 @@
  * internal type used in ThumbAPI
  */
 export type ThumbAPITag = {
-    lock?: String,
-    category?: String,
-    "$t": String
-} | String
+    lock?: string,
+    category?: string,
+    "$t": string
+} | string
 
 /**
  * ThumbAPI
@@ -17,46 +17,46 @@ export type ThumbAPITag = {
  */
 export interface ThumbAPI {
     nicovideo_thumb_response?: {
-        status: String,
+        status: string,
         error?: {
-            code: String,
-            description: String
+            code: string,
+            description: string
         },
         thumb?: {
             // ex: 'sm30924873'
-            video_id: String,
-            title: String,
-            description: String,
+            video_id: string,
+            title: string,
+            description: string,
             // ISO8601
-            first_retrieve: String,
+            first_retrieve: string,
             // ex: '2:55'
-            length: String,
+            length: string,
             // ex: 'video'
-            movie_type: String,
+            movie_type: string,
             // ex: '22716378', Number
-            size_high: String,
+            size_high: string,
             // ex: '8976386', Number
-            size_low: String,
+            size_low: string,
             // ex: '10', Number
-            view_counter: String,
+            view_counter: string,
             // ex '0', Number
-            comment_num: String,
+            comment_num: string,
             // ex: '0', Number
-            mylist_counter: String,
-            last_res_body: String | {},
+            mylist_counter: string,
+            last_res_body: string | {},
             // ex: 'http://www.nicovideo.jp/watch/sm30924873'
-            watch_url: String,
-            thumb_type: String,
+            watch_url: string,
+            thumb_type: string,
             // '0' or '1', Boolean
-            enbeddable: String,
+            enbeddable: string,
             // '0' or '1', Boolean
-            no_live_play: String,
+            no_live_play: string,
             tags: {
                 // ex: 'jp'
-                domain?: String,
+                domain?: string,
                 /**
                  * one tag:
-                 *   if not category and locked tag be String,
+                 *   if not category and locked tag be string,
                  *   else ThumbAPITag object.
                  * multiple:
                  *   - all tags aren't category and locked
@@ -64,7 +64,7 @@ export interface ThumbAPI {
                  *   - some tags are category or locked
                  *   [{lock: '1', '$t': 'a'}, 'b', 'c', ...]
                  */
-                tag?: String | ThumbAPITag[] | ThumbAPITag
+                tag?: string | ThumbAPITag[] | ThumbAPITag
             }
         }
     }

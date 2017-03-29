@@ -3,26 +3,26 @@
  * return type of module.
  */
 export interface Sorriso {
-    category: String,
+    category: string,
     comment: Number,
     deleted: Boolean,
-    description: String,
-    image: String,
+    description: string,
+    image: string,
     mylist: Number,
     reported: Boolean,
     time: {
-        string: String,
+        string: string,
         hours: Number,
         minutes: Number,
         seconds: Number
     },
-    title: String,
-    updated: String,
-    uploaded: String,
+    title: string,
+    updated: string,
+    uploaded: string,
     user: {
-        nickname: String,
+        nickname: string,
         id: Number,
-        image: String,
+        image: string,
         secret: Boolean
     } | null,
     view: Number
