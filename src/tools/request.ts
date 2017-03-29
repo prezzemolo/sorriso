@@ -4,7 +4,7 @@ import { Request } from "../interfaces"
 /**
  * http request sender.
  *
- * @param {String} url
+ * @param {string} url
  * @return {Promise<Request>} custom result object that has 3 properties... data, headers and statusCode.
  */
 export default (url: string): Promise<Request> => new Promise((resolve, reject) => {

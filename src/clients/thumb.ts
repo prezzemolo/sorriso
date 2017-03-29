@@ -5,7 +5,7 @@ import { ThumbAPI } from "../interfaces"
 /**
  * client of thumb api.
  *
- * @param {String} videoId niconico video identifier
+ * @param {string} videoId niconico video identifier
  * @return {Promise<Object>} thumb api result.
  */
 export default async (videoId: string) => {
