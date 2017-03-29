@@ -1,6 +1,6 @@
 {
   "name": "sorriso",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "get niconico video informations.",
   "main": "./release/index.js",
   "types": "./release/types/index.d.ts",
