@@ -1,24 +1,31 @@
 import * as http from "http"
+import * as https from "https"
 import * as URL from "url"
 import { Request } from "../interfaces"
 
 /**
- * http request sender.
+ * http/https request sender.
  *
  * @param {string} url
  * @param {string} method "GET" or "HEAD". GET" by default.
  * @return {Promise<Request>} custom result object that has 3 properties... data, headers and statusCode.
  */
 export default (url: string, method: string = "GET"): Promise<Request> => new Promise((resolve, reject) => {
-    /* pack options */
+    /**
+     * pack options
+     * https.RequestOptions is compatible with http.RequestOptions (Inheritance)
+     */
     const urlObj = URL.parse(url)
-    const options: http.RequestOptions = {
+    const options: https.RequestOptions = {
         "host": urlObj.hostname,
         "method": method,
         "path": urlObj.path
     }
 
-    /* receiver */
+    /**
+     * callback
+     * callback of http/https module's request method.
+     */
     const callback = (res: http.IncomingMessage) => {
         const data: Buffer[] = []
         res.on("data", (chunk: Buffer) => {
@@ -37,7 +44,23 @@ export default (url: string, method: string = "GET"): Promise<Request> => new Pr
         })
     }
 
-    /* send http request */
-    const req = http.request(options, callback)
+    /**
+     * send request
+     * automatic select http or https.
+     */
+    const req = urlObj.protocol === "http"
+        ? http.request(options, callback)
+        : urlObj.protocol === "https"
+        ? https.request(options, callback)
+        : null
+
+    /**
+     * @throw not supported protocol.
+     */
+    if (req === null) reject(new Error("not supported protocol."))
+
+    /**
+     * close request
+     */
     req.end()
 })
