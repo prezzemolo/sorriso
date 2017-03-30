@@ -27,29 +27,29 @@ export interface ThumbAPI {
             video_id: string,
             title: string,
             description: string,
+            thumbnail_url: string,
             // ISO8601
             first_retrieve: string,
             // ex: '2:55'
             length: string,
             // ex: 'video'
             movie_type: string,
-            // ex: '22716378', Number
+            // ex: '22716378', number
             size_high: string,
-            // ex: '8976386', Number
+            // ex: '8976386', number
             size_low: string,
-            // ex: '10', Number
+            // ex: '10', number
             view_counter: string,
-            // ex '0', Number
+            // ex '0', number
             comment_num: string,
-            // ex: '0', Number
+            // ex: '0', number
             mylist_counter: string,
             last_res_body: string | {},
-            // ex: 'http://www.nicovideo.jp/watch/sm30924873'
             watch_url: string,
             thumb_type: string,
-            // '0' or '1', Boolean
+            // '0' or '1', boolean
             enbeddable: string,
-            // '0' or '1', Boolean
+            // '0' or '1', boolean
             no_live_play: string,
             tags: {
                 // ex: 'jp'
@@ -65,7 +65,11 @@ export interface ThumbAPI {
                  *   [{lock: '1', '$t': 'a'}, 'b', 'c', ...]
                  */
                 tag?: string | ThumbAPITag[] | ThumbAPITag
-            }
+            },
+            // ex: '36489138', number
+            user_id: string,
+            user_nickname: string,
+            user_icon_url: string
         }
     }
 }
