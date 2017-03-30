@@ -1,7 +1,13 @@
 import * as http from "http"
 import * as https from "https"
 import * as URL from "url"
-import { Request } from "../interfaces"
+import { Request, Package } from "../interfaces"
+
+/**
+ * load package.json for get version.
+ * using require for cacheing.
+ */
+const packageJson: Package = require("../../package.json")
 
 /**
  * http/https request sender.
@@ -12,11 +18,19 @@ import { Request } from "../interfaces"
  */
 export default (url: string, method: string = "GET"): Promise<Request> => new Promise((resolve, reject) => {
     /**
+     * @throw not supported method.
+     */
+    if (method !== "GET" && method !== "HEAD") reject(new Error("not supported method."))
+
+    /**
      * pack options
      * https.RequestOptions is compatible with http.RequestOptions (Inheritance)
      */
     const urlObj = URL.parse(url)
     const options: https.RequestOptions = {
+        "headers": {
+            "User-Agent": `Mozilla/5.0 (compatible; ${packageJson.name}/${packageJson.version}; +https://www.npmjs.com/package/${packageJson.name})`
+        },
         "host": urlObj.hostname,
         "method": method,
         "path": urlObj.path
@@ -28,20 +42,25 @@ export default (url: string, method: string = "GET"): Promise<Request> => new Pr
      */
     const callback = (res: http.IncomingMessage) => {
         const data: Buffer[] = []
-        res.on("data", (chunk: Buffer) => {
-            data.push(chunk)
-        })
-        res.on("end", () => {
-            let result: Request = {
-                headers: res.headers,
-                statusCode: res.statusCode
-            }
-            if (data.length > 0) result.data =  Buffer.concat(data)
+        const result: Request = {
+            headers: res.headers,
+            statusCode: res.statusCode
+        }
+
+        if (method === "HEAD") {
             resolve(result)
-        })
-        res.on("close", (err: Error) => {
-            reject(err)
-        })
+        } else {
+            res.on("end", () => {
+                if (data.length > 0) result.data =  Buffer.concat(data)
+                resolve(result)
+            })
+            res.on("data", (chunk: Buffer) => {
+                data.push(chunk)
+            })
+            res.on("close", (err: Error) => {
+                reject(err)
+            })
+        }
     }
 
     /**
