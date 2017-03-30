@@ -47,20 +47,19 @@ export default (url: string, method: string = "GET"): Promise<Request> => new Pr
             statusCode: res.statusCode
         }
 
-        if (method === "HEAD") {
+        /* if HEAD method, resolve result has no datas. */
+        if (method === "HEAD") resolve(result)
+
+        res.on("end", () => {
+            if (data.length > 0) result.data =  Buffer.concat(data)
             resolve(result)
-        } else {
-            res.on("end", () => {
-                if (data.length > 0) result.data =  Buffer.concat(data)
-                resolve(result)
-            })
-            res.on("data", (chunk: Buffer) => {
-                data.push(chunk)
-            })
-            res.on("close", (err: Error) => {
-                reject(err)
-            })
-        }
+        })
+        res.on("data", (chunk: Buffer) => {
+            data.push(chunk)
+        })
+        res.on("close", (err: Error) => {
+            reject(err)
+        )}
     }
 
     /**
