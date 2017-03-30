@@ -48,9 +48,9 @@ export default (url: string, method: string = "GET"): Promise<Request> => new Pr
      * send request
      * automatic select http or https.
      */
-    const req = urlObj.protocol === "http"
+    const req = urlObj.protocol === "http:"
         ? http.request(options, callback)
-        : urlObj.protocol === "https"
+        : urlObj.protocol === "https:"
         ? https.request(options, callback)
         : null
 
