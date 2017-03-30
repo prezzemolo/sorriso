@@ -1,12 +1,12 @@
 /**
  *  Request: interface of request
  *
- * @property {Buffer} data if receive data, it will be contained.
- * @property {Object} headers dictionary contains received http headers.
- * @property {Number} statusCode http statusCode.
+ * @property {buffer} data if receive data, it will be contained.
+ * @property {object} headers dictionary contains received http headers.
+ * @property {number} statusCode http statusCode.
  */
 export interface Request {
-    data?: Buffer,
+    data?: buffer,
     headers: any,
-    statusCode: Number
+    statusCode: number
 }

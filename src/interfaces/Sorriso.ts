@@ -4,26 +4,26 @@
  */
 export interface Sorriso {
     category: string,
-    comment: Number,
-    deleted: Boolean,
+    comment: number,
+    deleted: boolean,
     description: string,
     image: string,
-    mylist: Number,
-    reported: Boolean,
+    mylist: number,
+    reported: boolean,
     time: {
         string: string,
-        hours: Number,
-        minutes: Number,
-        seconds: Number
+        hours: number,
+        minutes: number,
+        seconds: number
     },
     title: string,
     updated: string,
     uploaded: string,
     user: {
         nickname: string,
-        id: Number,
+        id: number,
         image: string,
-        secret: Boolean
+        secret: boolean
     } | null,
-    view: Number
+    view: number
 }

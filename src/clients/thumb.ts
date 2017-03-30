@@ -6,7 +6,7 @@ import { ThumbAPI } from "../interfaces"
  * client of thumb api.
  *
  * @param {string} videoId niconico video identifier
- * @return {Promise<Object>} thumb api result.
+ * @return {Promise<object>} thumb api result.
  */
 export default async (videoId: string) => {
     const result = await request("http://ext.nicovideo.jp/api/getthumbinfo/" + videoId)
