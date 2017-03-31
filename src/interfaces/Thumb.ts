@@ -3,7 +3,9 @@
  * internal interface used in ThumbAPITag.
  */
 export interface ThumbAPITagObject {
+    // '0' or '1', boolean
     lock?: string,
+    // '0' or '1', boolean
     category?: string,
     "$t": string
 }
@@ -39,8 +41,8 @@ export interface ThumbAPI {
             thumbnail_url: string,
             // ISO8601
             first_retrieve: string,
-            // ex: '2:55'
-            length: string,
+            // ex: '2:55' or {}
+            length: string | {},
             // ex: 'flv', 'mp4'
             movie_type: string,
             // ex: '22716378', number
@@ -53,6 +55,7 @@ export interface ThumbAPI {
             comment_num: string,
             // ex: '0', number
             mylist_counter: string,
+            // {} as no comments
             last_res_body: string | {},
             watch_url: string,
             // ex: 'video'
@@ -73,4 +76,28 @@ export interface ThumbAPI {
             user_icon_url: string
         }
     }
+}
+
+/**
+ * Thumb
+ * return type of Thumb client.
+ */
+export interface Thumb {
+    // sometime category doesn't exist.
+    category?: string,
+    comment: number,
+    description: string,
+    image: string,
+    mylist: number,
+    // sometime buggy API doesn't return length, once it happened requesting sm6948931.
+    time?: string,
+    title: string,
+    // ISO8601
+    uploaded: string,
+    user: {
+        nickname: string,
+        id: number,
+        icon: string
+    },
+    view: number
 }
