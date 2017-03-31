@@ -32,7 +32,7 @@ export interface ThumbAPI {
             first_retrieve: string,
             // ex: '2:55'
             length: string,
-            // ex: 'video'
+            // ex: 'flv', 'mp4'
             movie_type: string,
             // ex: '22716378', number
             size_high: string,
@@ -46,6 +46,7 @@ export interface ThumbAPI {
             mylist_counter: string,
             last_res_body: string | {},
             watch_url: string,
+            // ex: 'video'
             thumb_type: string,
             // '0' or '1', boolean
             enbeddable: string,
@@ -64,7 +65,7 @@ export interface ThumbAPI {
                  *   - some tags are category or locked
                  *   [{lock: '1', '$t': 'a'}, 'b', 'c', ...]
                  */
-                tag?: string | ThumbAPITag[] | ThumbAPITag
+                tag?: ThumbAPITag[] | ThumbAPITag
             },
             // ex: '36489138', number
             user_id: string,
