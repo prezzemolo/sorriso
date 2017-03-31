@@ -59,7 +59,7 @@ export default (url: string, method: string = "GET"): Promise<Request> => new Pr
         })
         res.on("close", (err: Error) => {
             reject(err)
-        )}
+        })
     }
 
     /**
