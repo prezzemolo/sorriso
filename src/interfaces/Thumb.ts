@@ -1,16 +1,25 @@
 /**
- * ThumbAPITag
- * internal type used in ThumbAPI
+ * ThumbAPITagObject
+ * internal interface used in ThumbAPITag.
  */
-export type ThumbAPITag = {
+export interface ThumbAPITagObject {
     lock?: string,
     category?: string,
     "$t": string
-} | string
+}
+
+/**
+ * ThumbAPITag
+ * internal type used in ThumbAPI.
+ *
+ * ThumbAPI.niconico_thumb_responce.thumb.tags.tag either be
+ *     ThumbAPITagObject or string.
+ */
+export type ThumbAPITag =  ThumbAPITagObject | string
 
 /**
  * ThumbAPI
- * internal interface of thumb api's response
+ * internal interface of thumb api's response.
  *
  * note: nicovideo_thumb_response is optional in this interface, for
  *     resolve an error "src/clients/thumb.ts(28,11): error TS2322: Type '{}' is not assignable to type 'Thumb'.".
@@ -55,17 +64,8 @@ export interface ThumbAPI {
             tags: {
                 // ex: 'jp'
                 domain?: string,
-                /**
-                 * one tag:
-                 *   if not category and locked tag be string,
-                 *   else ThumbAPITag object.
-                 * multiple:
-                 *   - all tags aren't category and locked
-                 *   ['a', 'b', 'c', ...]
-                 *   - some tags are category or locked
-                 *   [{lock: '1', '$t': 'a'}, 'b', 'c', ...]
-                 */
-                tag?: ThumbAPITag[] | ThumbAPITag
+                // array of ThumbAPITag or a ThumbAPITag
+                tag?: ThumbAPITag | ThumbAPITag[]
             },
             // ex: '36489138', number
             user_id: string,
