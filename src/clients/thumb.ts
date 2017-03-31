@@ -17,15 +17,16 @@ const castToBoolean = (special: string): boolean => {
 
 /**
  * extract category from ThumbAPITag[] or ThumbAPITag
+ * if category doesn't exist, throw error "no tags found.".
  *
  * @param {ThumbAPITag[]|ThumbAPITag} tags ThumbAPI.nicovideo_thumb_response.thumb.tags.tag
- * @return {string} if category isn't set, undefined.
+ * @return {string}
  */
 const extractCategory = (tags: ThumbAPITag[] | ThumbAPITag): string => {
     /**
-     * oh string! tags includes no categories.
+     * oh string! tags includes no category tag.
      */
-    if (typeof tags === "string") return undefined
+    if (typeof tags === "string") throw new Error("no category found.")
 
     /**
      * oh array! include some ThumbAPITag!
@@ -39,8 +40,8 @@ const extractCategory = (tags: ThumbAPITag[] | ThumbAPITag): string => {
             if (tag.category) return tag["$t"]
         }
 
-        // so... no return event happened on loop, no categories.
-        return undefined
+        // so... no return event happened on loop, no category tag.
+        throw new Error("no category found.")
     }
 
     /**
@@ -52,7 +53,7 @@ const extractCategory = (tags: ThumbAPITag[] | ThumbAPITag): string => {
      * no return event happened?
      * so... there are no category tags...
      */
-    return undefined
+    throw new Error("no category found.")
 }
 
 /**
@@ -116,8 +117,13 @@ export default async (videoId: string) => {
      *  if thumb.tags.tag exist, search category.
      */
     if (thumb.tags.tag) {
-        const category = extractCategory(thumb.tags.tag)
-        if (category) responce.category = category
+        try {
+            const category = extractCategory(thumb.tags.tag)
+            responce.category = category
+        } catch (e) {
+            // if not extractCategory's custom error, re-throw.
+            if (e.message !== "no category found.") throw e
+        }
     }
 
     /**
