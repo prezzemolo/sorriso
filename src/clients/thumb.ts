@@ -1,6 +1,6 @@
 import request from "../tools/request"
 import * as xml2json from "xml2json"
-import { ThumbAPI, ThumbAPITag, ThumbAPITagObject, Thumb } from "../interfaces"
+import { ThumbAPI, ThumbAPITag, Thumb } from "../interfaces"
 
 /**
  * cast to boolean
@@ -60,7 +60,7 @@ const extractCategory = (tags: ThumbAPITag[] | ThumbAPITag): string => {
  * client of thumb api.
  *
  * @param {string} videoId niconico video identifier
- * @return {Promise<object>} thumb api result.
+ * @return {Promise<Thumb>} thumb api result.
  */
 export default async (videoId: string) => {
     const result = await request("http://ext.nicovideo.jp/api/getthumbinfo/" + videoId)
