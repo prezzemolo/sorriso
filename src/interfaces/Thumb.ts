@@ -90,7 +90,12 @@ export interface Thumb {
     image: string,
     mylist: number,
     // sometime buggy API doesn't return length, once it happened requesting sm6948931.
-    time?: string,
+    time?: {
+        string: string,
+        hours: number,
+        minutes: number,
+        seconds: number
+    },
     title: string,
     // ISO8601
     uploaded: string,

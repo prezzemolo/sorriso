@@ -1,4 +1,5 @@
 import request from "../tools/request"
+import timeTool from "../tools/time"
 import * as xml2json from "xml2json"
 import { ThumbAPI, ThumbAPITag, Thumb } from "../interfaces"
 
@@ -138,7 +139,15 @@ export default async (videoId: string) => {
     /**
      * if thumb.length is string, insert it!
      */
-    if (typeof thumb.length === "string") responce.time = thumb.length
+    if (typeof thumb.length === "string") {
+        const time = timeTool(thumb.length)
+        responce.time = {
+            string: thumb.length,
+            hours: time.years * 365 * 24 + time.days * 24 + time.hours,
+            minutes: time.minutes,
+            seconds: time.seconds
+        }
+    }
 
     /**
      * return thumb data! yeah.
