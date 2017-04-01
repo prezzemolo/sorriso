@@ -1,5 +1,6 @@
-sorriso [![][mit-badge]][mit] [![][travis-badge]][travis] [![][greenkeeper-badge]][greenkeeper]
+sorriso
 ==========
+[![][mit-badge]][mit] [![][travis-badge]][travis] [![][greenkeeper-badge]][greenkeeper] [![][npm-badge]][npm]  
 get niconico video informations.
 
 Installation
@@ -8,10 +9,9 @@ Installation
 npm install sorriso
 ```
 
-Usage
+Example
 ----------
-
-#### Node.js
+### Node.js
 ```js
 const sorriso = require('sorriso').default;
 const result = await sorriso('sm9');
@@ -34,7 +34,7 @@ console.dir(result);
 */
 ```
 
-#### TypeScript
+### TypeScript
 ```ts
 import sorriso from 'sorisso';
 const result = await sorriso('sm9');
@@ -67,3 +67,5 @@ The MIT License. See [LICENSE](LICENSE).
 [travis-badge]: https://img.shields.io/travis/prezzemolo/sorriso/master.svg?style=flat-square
 [greenkeeper]: https://greenkeeper.io/
 [greenkeeper-badge]: https://badges.greenkeeper.io/prezzemolo/sorriso.svg
+[npm]: https://www.npmjs.com/package/sorriso
+[npm-badge]: https://badge.fury.io/js/sorriso.svg
