@@ -15,7 +15,7 @@ const toSec: TimeToSec = {
 }
 
 /**
- * parse time string.
+ * parse length string.
  * @param {string} time ex: "3:21"
  * @returns {Time}
  */

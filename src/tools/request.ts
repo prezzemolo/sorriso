@@ -18,7 +18,7 @@ const packageJson: Package = require("../../package.json")
  */
 export default (url: string, method: string = "GET"): Promise<Request> => new Promise((resolve, reject) => {
     /**
-     * @throw not supported method.
+     * @throws not supported method.
      */
     if (method !== "GET" && method !== "HEAD") reject(new Error("not supported method."))
 
@@ -73,7 +73,7 @@ export default (url: string, method: string = "GET"): Promise<Request> => new Pr
         : null
 
     /**
-     * @throw not supported protocol.
+     * @throws not supported protocol.
      */
     if (req === null) reject(new Error("not supported protocol."))
 
