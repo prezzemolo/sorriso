@@ -1,7 +1,7 @@
 import { Time, TimeToSec } from "../interfaces"
 
 /**
- * toSec
+ * convert num of years, days, hours and minutes to seconds.
  */
 const toSec: TimeToSec = {
     years:

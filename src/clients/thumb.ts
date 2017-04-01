@@ -24,11 +24,13 @@ const castToBoolean = (special: string): boolean => {
  */
 const extractCategory = (tags: ThumbAPITag[] | ThumbAPITag): string => {
     /**
+     * @throws no category found.
      * oh string! tags includes no category tag.
      */
     if (typeof tags === "string") throw new Error("no category found.")
 
     /**
+     * @throws no category found.
      * oh array! include some ThumbAPITag!
      */
     if (Array.isArray(tags)) {
@@ -40,7 +42,10 @@ const extractCategory = (tags: ThumbAPITag[] | ThumbAPITag): string => {
             if (tag.category) return tag["$t"]
         }
 
-        // so... no return event happened on loop, no category tag.
+        /**
+         * @throws no category found.
+         * so... no return event happened on loop, no category tag.
+         */
         throw new Error("no category found.")
     }
 
@@ -50,6 +55,7 @@ const extractCategory = (tags: ThumbAPITag[] | ThumbAPITag): string => {
     if (castToBoolean(tags.category)) return tags["$t"]
 
     /**
+     * @throws no category found.
      * no return event happened?
      * so... there are no category tags...
      */
@@ -114,14 +120,17 @@ export default async (videoId: string) => {
     }
 
     /**
-     *  if thumb.tags.tag exist, search category.
+     * if thumb.tags.tag exist, search category.
      */
     if (thumb.tags.tag) {
         try {
             const category = extractCategory(thumb.tags.tag)
             responce.category = category
         } catch (e) {
-            // if not extractCategory's custom error, re-throw.
+            /**
+             * @throws e (re-throw)
+             * if not extractCategory's custom error, re-throw.
+             */
             if (e.message !== "no category found.") throw e
         }
     }
