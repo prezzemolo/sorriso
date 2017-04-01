@@ -17,24 +17,20 @@ const sorriso = require('sorriso').default;
 const result = await sorriso('sm9');
 console.dir(result);
 
-/* 
-{ category: null,
-  comment: 4474349,
-  deleted: false,
-  description: 'レッツゴー!陰陽師(フルコーラスバージョン)',
-  image: 'http://tn-skr2.smilevideo.jp/smile?i=9',
-  mylist: 167570,
-  reported: false,
-  time: { string: '5:19', hours: 0, minutes: 5, seconds: 19 },
-  title: '新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師',
-  updated: '2017-02-27T15:13:04+09:00',
-  uploaded: '2007-03-06T00:33:00+09:00',
+/*
+{ comment: 213,
+  description: '初下山ですガバというか地力不足ですがごりらの皆さん許して次：sm30123105https://twitter.com/kuro1234502IIDX ID:0324-3161【追記】リオール兄貴、ぽく兄貴、からすまる兄貴、広告ありがとうございます！',
+  image: 'http://tn-skr2.smilevideo.jp/smile?i=30079993.L',
+  mylist: 20,
+  title: '凡人が六段を目指す',
+  uploaded: '2016-11-20T13:29:13+09:00',
   user: 
-   { nickname: '運営長の中の人',
-     id: 4,
-     image: 'http://dcdn.cdn.nimg.jp/nicoaccount/usericon/0/4.jpg?1271141672',
-     secret: false },
-  view: 16289263 }
+   { nickname: 'くろ',
+     id: 13889910,
+     icon: 'https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/1388/13889910.jpg?1475317221' },
+  view: 3686,
+  category: 'ゲーム',
+  time: { string: '12:41', hours: 0, minutes: 12, seconds: 41 } }
 */
 ```
 
@@ -45,23 +41,19 @@ const result = await sorriso('sm9');
 console.dir(result);
 
 /* 
-{ category: null,
-  comment: 4474349,
-  deleted: false,
-  description: 'レッツゴー!陰陽師(フルコーラスバージョン)',
-  image: 'http://tn-skr2.smilevideo.jp/smile?i=9',
-  mylist: 167570,
-  reported: false,
-  time: { string: '5:19', hours: 0, minutes: 5, seconds: 19 },
-  title: '新・豪血寺一族 -煩悩解放 - レッツゴー！陰陽師',
-  updated: '2017-02-27T15:13:04+09:00',
-  uploaded: '2007-03-06T00:33:00+09:00',
+{ comment: 213,
+  description: '初下山ですガバというか地力不足ですがごりらの皆さん許して次：sm30123105https://twitter.com/kuro1234502IIDX ID:0324-3161【追記】リオール兄貴、ぽく兄貴、からすまる兄貴、広告ありがとうございます！',
+  image: 'http://tn-skr2.smilevideo.jp/smile?i=30079993.L',
+  mylist: 20,
+  title: '凡人が六段を目指す',
+  uploaded: '2016-11-20T13:29:13+09:00',
   user: 
-   { nickname: '運営長の中の人',
-     id: 4,
-     image: 'http://dcdn.cdn.nimg.jp/nicoaccount/usericon/0/4.jpg?1271141672',
-     secret: false },
-  view: 16289263 }
+   { nickname: 'くろ',
+     id: 13889910,
+     icon: 'https://secure-dcdn.cdn.nimg.jp/nicoaccount/usericon/s/1388/13889910.jpg?1475317221' },
+  view: 3686,
+  category: 'ゲーム',
+  time: { string: '12:41', hours: 0, minutes: 12, seconds: 41 } }
 */
 ```
 
